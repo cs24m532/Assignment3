@@ -1,0 +1,413 @@
+Microsoft Windows [Version 10.0.26100.7171]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Users\sanchroy>conda activate sanchari_deep
+
+(sanchari_deep) C:\Users\sanchroy>conda activate sanchari_deep
+
+(sanchari_deep) C:\Users\sanchroy>cd "Desktop\MTECH\deep learning"
+
+(sanchari_deep) C:\Users\sanchroy\Desktop\MTECH\deep learning>cd Sanchari_Assignment3
+
+00000000000000000000000000000000000000000000000000base0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+
+(sanchari_deep) C:\Users\sanchroy\Desktop\MTECH\deep learning\Sanchari_Assignment3>python train.py --epochs 60 --weight_bits 32 --activation_bits 32 --use_wandb --wandb_project sanchari_assignment3
+(sanchari_deep) C:\Users\sanchroy\Desktop\MTECH\deep learning\Sanchari_Assignment3>python measure_compression.py --checkpoint checkpoints/checkpoint_epoch_39.pth --weight_bits 32 --activation_bits 32 --use_wandb --wandb_project sanchari_assignment31
+
+=== Weight compression ===
+Baseline weight bits (FP32): 71573824
+Quantized data bits: 71573824
+Quantized overhead bits (scale/zp): 10112
+Total quantized bits: 71583936
+Compression ratio (weights) = baseline / quantized = 1.00x
+Baseline weight size (MB): 8.532
+Quantized weight size (MB): 8.533
+C:\Users\sanchroy\miniconda3\envs\sanchari_deep\lib\site-packages\torch\utils\data\dataloader.py:668: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+
+=== Activation compression (approx) ===
+Total quantized activation bits (sampled): 0.00e+00
+Estimated baseline (FP32) activation bits: 0.00e+00
+
+=== Model-level compression ===
+Model compression ratio ~ 1.00x
+Final approx model size (MB) after compression: 8.533 MB
+
+(sanchari_deep) C:\Users\sanchroy\Desktop\MTECH\deep
+
+
+11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111:
+
+(sanchari_deep) C:\Users\sanchroy\Desktop\MTECH\deep learning\Sanchari_Assignment3>python train.py --epochs 20 --weight_bits 4 --activation_bits 4  --use_wandb --wandb_project sanchari_assignment3
+
+(sanchari_deep) C:\Users\sanchroy\Desktop\MTECH\deep learning\Sanchari_Assignment3>python measure_compression.py --checkpoint checkpoints/checkpoint_epoch_39.pth --weight_bits 4 --activation_bits 4
+=== Weight compression ===
+Baseline weight bits (FP32): 71573824
+Quantized data bits: 8946728
+Quantized overhead bits (scale/zp): 10112
+Total quantized bits: 8956840
+Compression ratio (weights) = baseline / quantized = 7.99x
+Baseline weight size (MB): 8.532
+Quantized weight size (MB): 1.068
+C:\Users\sanchroy\miniconda3\envs\sanchari_deep\lib\site-packages\torch\utils\data\dataloader.py:668: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+
+=== Activation compression (approx) ===
+Total quantized activation bits (sampled): 1.05e+07
+Estimated baseline (FP32) activation bits: 8.39e+07
+Compression ratio (activations) ~ 8.00x
+
+=== Model-level compression ===
+Model compression ratio ~ 7.99x
+Final approx model size (MB) after compression: 1.068 MB
+
+2222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222:
+(sanchari_deep) C:\Users\sanchroy\Desktop\MTECH\deep learning\Sanchari_Assignment3>python train.py --epochs 20 --weight_bits 8 --activation_bits 32  --use_wandb --wandb_project sanchari_assignment3
+(sanchari_deep) C:\Users\sanchroy\Desktop\MTECH\deep learning\Sanchari_Assignment3>python measure_compression.py --checkpoint checkpoints/checkpoint_epoch_39.pth --weight_bits 8 --activation_bits 32
+=== Weight compression ===
+Baseline weight bits (FP32): 71573824
+Quantized data bits: 17893456
+Quantized overhead bits (scale/zp): 10112
+Total quantized bits: 17903568
+Compression ratio (weights) = baseline / quantized = 4.00x
+Baseline weight size (MB): 8.532
+Quantized weight size (MB): 2.134
+C:\Users\sanchroy\miniconda3\envs\sanchari_deep\lib\site-packages\torch\utils\data\dataloader.py:668: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+
+=== Activation compression (approx) ===
+Total quantized activation bits (sampled): 0.00e+00
+Estimated baseline (FP32) activation bits: 0.00e+00
+
+=== Model-level compression ===
+Model compression ratio ~ 4.00x
+Final approx model size (MB) after compression: 2.134 MB
+
+33333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333:
+(sanchari_deep) C:\Users\sanchroy\Desktop\MTECH\deep learning\Sanchari_Assignment3>python train.py --epochs 20 --weight_bits 8 --activation_bits 4 --use_wandb --wandb_project sanchari_assignment3
+(sanchari_deep) C:\Users\sanchroy\Desktop\MTECH\deep learning\Sanchari_Assignment3>python measure_compression.py --checkpoint checkpoints/checkpoint_epoch_39.pth --weight_bits 8 --activation_bits 4
+=== Weight compression ===
+Baseline weight bits (FP32): 71573824
+Quantized data bits: 17893456
+Quantized overhead bits (scale/zp): 10112
+Total quantized bits: 17903568
+Compression ratio (weights) = baseline / quantized = 4.00x
+Baseline weight size (MB): 8.532
+Quantized weight size (MB): 2.134
+C:\Users\sanchroy\miniconda3\envs\sanchari_deep\lib\site-packages\torch\utils\data\dataloader.py:668: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+
+=== Activation compression (approx) ===
+Total quantized activation bits (sampled): 1.05e+07
+Estimated baseline (FP32) activation bits: 8.39e+07
+Compression ratio (activations) ~ 8.00x
+
+=== Model-level compression ===
+Model compression ratio ~ 4.00x
+Final approx model size (MB) after compression: 2.134 MB
+
+4444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444
+(sanchari_deep) C:\Users\sanchroy\Desktop\MTECH\deep learning\Sanchari_Assignment3>python train.py --epochs 20 --weight_bits 6 --activation_bits 4  --use_wandb --wandb_project sanchari_assignment3
+(sanchari_deep) C:\Users\sanchroy\Desktop\MTECH\deep learning\Sanchari_Assignment3>python measure_compression.py --checkpoint checkpoints/checkpoint_epoch_39.pth --weight_bits 6 --activation_bits 4
+=== Weight compression ===
+Baseline weight bits (FP32): 71573824
+Quantized data bits: 13420092
+Quantized overhead bits (scale/zp): 10112
+Total quantized bits: 13430204
+Compression ratio (weights) = baseline / quantized = 5.33x
+Baseline weight size (MB): 8.532
+Quantized weight size (MB): 1.601
+C:\Users\sanchroy\miniconda3\envs\sanchari_deep\lib\site-packages\torch\utils\data\dataloader.py:668: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+
+=== Activation compression (approx) ===
+Total quantized activation bits (sampled): 1.05e+07
+Estimated baseline (FP32) activation bits: 8.39e+07
+Compression ratio (activations) ~ 8.00x
+
+=== Model-level compression ===
+Model compression ratio ~ 5.33x
+Final approx model size (MB) after compression: 1.601 MB
+
+(sanchari_deep) C:\Users\sanchroy\Desktop\MTECH\deep learning\Sanchari_Assignment3>
+
+55555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555
+
+
+(sanchari_deep) C:\Users\sanchroy\Desktop\MTECH\deep learning\Sanchari_Assignment3>python train.py --epochs 20  --weight_bits 8 --activation_bits 8  --use_wandb --wandb_project sanchari_assignment3
+
+(sanchari_deep) C:\Users\sanchroy\Desktop\MTECH\deep learning\Sanchari_Assignment3>python measure_compression.py --checkpoint checkpoints/checkpoint_epoch_39.pth --weight_bits 8 --activation_bits 8
+=== Weight compression ===
+Baseline weight bits (FP32): 71573824
+Quantized data bits: 17893456
+Quantized overhead bits (scale/zp): 10112
+Total quantized bits: 17903568
+Compression ratio (weights) = baseline / quantized = 4.00x
+Baseline weight size (MB): 8.532
+Quantized weight size (MB): 2.134
+C:\Users\sanchroy\miniconda3\envs\sanchari_deep\lib\site-packages\torch\utils\data\dataloader.py:668: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+
+=== Activation compression (approx) ===
+Total quantized activation bits (sampled): 2.10e+07
+Estimated baseline (FP32) activation bits: 8.39e+07
+Compression ratio (activations) ~ 4.00x
+
+=== Model-level compression ===
+Model compression ratio ~ 4.00x
+Final approx model size (MB) after compression: 2.134 MB
+
+6666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666
+(sanchari_deep) C:\Users\sanchroy\Desktop\MTECH\deep learning\Sanchari_Assignment3>
+(sanchari_deep) C:\Users\sanchroy\Desktop\MTECH\deep learning\Sanchari_Assignment3>python train.py --epochs 20  --weight_bits 4 --activation_bits 8  --use_wandb --wandb_project sanchari_assignment3
+(sanchari_deep) C:\Users\sanchroy\Desktop\MTECH\deep learning\Sanchari_Assignment3>python measure_compression.py --checkpoint checkpoints/checkpoint_epoch_39.pth --weight_bits 4--activation_bits 8
+usage: measure_compression.py [-h] --checkpoint CHECKPOINT [--weight_bits WEIGHT_BITS] [--activation_bits ACTIVATION_BITS] [--symmetric] [--per_channel] [--data_dir DATA_DIR] [--batch_size BATCH_SIZE]
+measure_compression.py: error: argument --weight_bits: invalid int value: '4--activation_bits'
+
+(sanchari_deep) C:\Users\sanchroy\Desktop\MTECH\deep learning\Sanchari_Assignment3>python measure_compression.py --checkpoint checkpoints/checkpoint_epoch_39.pth --weight_bits 4 --activation_bits 8
+=== Weight compression ===
+Baseline weight bits (FP32): 71573824
+Quantized data bits: 8946728
+Quantized overhead bits (scale/zp): 10112
+Total quantized bits: 8956840
+Compression ratio (weights) = baseline / quantized = 7.99x
+Baseline weight size (MB): 8.532
+Quantized weight size (MB): 1.068
+C:\Users\sanchroy\miniconda3\envs\sanchari_deep\lib\site-packages\torch\utils\data\dataloader.py:668: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+
+=== Activation compression (approx) ===
+Total quantized activation bits (sampled): 2.10e+07
+Estimated baseline (FP32) activation bits: 8.39e+07
+Compression ratio (activations) ~ 4.00x
+
+=== Model-level compression ===
+Model compression ratio ~ 7.99x
+Final approx model size (MB) after compression: 1.068 MB
+
+77777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777
+(sanchari_deep) C:\Users\sanchroy\Desktop\MTECH\deep learning\Sanchari_Assignment3>python train.py --epochs 20  --weight_bits 2 --activation_bits 2  --use_wandb --wandb_project sanchari_assignment3
+(sanchari_deep) C:\Users\sanchroy\Desktop\MTECH\deep learning\Sanchari_Assignment3>python measure_compression.py --checkpoint checkpoints/checkpoint_epoch_39.pth --weight_bits 2  --activation_bits 2
+=== Weight compression ===
+Baseline weight bits (FP32): 71573824
+Quantized data bits: 4473364
+Quantized overhead bits (scale/zp): 10112
+Total quantized bits: 4483476
+Compression ratio (weights) = baseline / quantized = 15.96x
+Baseline weight size (MB): 8.532
+Quantized weight size (MB): 0.534
+C:\Users\sanchroy\miniconda3\envs\sanchari_deep\lib\site-packages\torch\utils\data\dataloader.py:668: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+
+=== Activation compression (approx) ===
+Total quantized activation bits (sampled): 5.25e+06
+Estimated baseline (FP32) activation bits: 8.39e+07
+Compression ratio (activations) ~ 16.00x
+
+=== Model-level compression ===
+Model compression ratio ~ 15.96x
+Final approx model size (MB) after compression: 0.534 MB
+
+888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888
+(sanchari_deep) C:\Users\sanchroy\Desktop\MTECH\deep learning\Sanchari_Assignment3>python train.py --epochs 20  --weight_bits 6 --activation_bits 6  --use_wandb --wandb_project sanchari_assignment3
+(sanchari_deep) C:\Users\sanchroy\Desktop\MTECH\deep learning\Sanchari_Assignment3>python measure_compression.py --checkpoint checkpoints/checkpoint_epoch_39.pth --weight_bits 6 --activation_bits 6
+=== Weight compression ===
+Baseline weight bits (FP32): 71573824
+Quantized data bits: 13420092
+Quantized overhead bits (scale/zp): 10112
+Total quantized bits: 13430204
+Compression ratio (weights) = baseline / quantized = 5.33x
+Baseline weight size (MB): 8.532
+Quantized weight size (MB): 1.601
+C:\Users\sanchroy\miniconda3\envs\sanchari_deep\lib\site-packages\torch\utils\data\dataloader.py:668: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+
+=== Activation compression (approx) ===
+Total quantized activation bits (sampled): 1.57e+07
+Estimated baseline (FP32) activation bits: 8.39e+07
+Compression ratio (activations) ~ 5.33x
+
+=== Model-level compression ===
+Model compression ratio ~ 5.33x
+Final approx model size (MB) after compression: 1.601 MB
+
+999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999
+(sanchari_deep) C:\Users\sanchroy\Desktop\MTECH\deep learning\Sanchari_Assignment3>
+(sanchari_deep) C:\Users\sanchroy\Desktop\MTECH\deep learning\Sanchari_Assignment3>python train.py --epochs 20  --weight_bits 2 --activation_bits 4 --use_wandb --wandb_project sanchari_assignment3
+
+(sanchari_deep) C:\Users\sanchroy\Desktop\MTECH\deep learning\Sanchari_Assignment3>python measure_compression.py --checkpoint checkpoints/checkpoint_epoch_39.pth --weight_bits 2 --activation_bits 4
+=== Weight compression ===
+Baseline weight bits (FP32): 71573824
+Quantized data bits: 4473364
+Quantized overhead bits (scale/zp): 10112
+Total quantized bits: 4483476
+Compression ratio (weights) = baseline / quantized = 15.96x
+Baseline weight size (MB): 8.532
+Quantized weight size (MB): 0.534
+C:\Users\sanchroy\miniconda3\envs\sanchari_deep\lib\site-packages\torch\utils\data\dataloader.py:668: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+
+=== Activation compression (approx) ===
+Total quantized activation bits (sampled): 1.05e+07
+Estimated baseline (FP32) activation bits: 8.39e+07
+Compression ratio (activations) ~ 8.00x
+
+=== Model-level compression ===
+Model compression ratio ~ 15.96x
+Final approx model size (MB) after compression: 0.534 MB
+
+
+
+1010101010101010101010111111111111111111111111111111111111111111111111111111111000000000000000000000000000000000000000000000000000000000000000000000000
+
+(sanchari_deep) C:\Users\sanchroy\Desktop\MTECH\deep learning\Sanchari_Assignment3>
+(sanchari_deep) C:\Users\sanchroy\Desktop\MTECH\deep learning\Sanchari_Assignment3>python train.py --epochs 10 --lr 0.02 --weight_bits 4 --activation_bits 4  --use_wandb --wandb_project sanchari_assignment3
+>>> main() started with config: TrainConfig(data_dir='./data', num_workers=4, width_mult=1.0, dropout=0.2, num_classes=10, batch_size=128, epochs=10, optimizer='sgd', lr=0.02, momentum=0.9, weight_decay=0.0005, lr_schedule='cosine', warmup_epochs=5, label_smoothing=0.0, seed=42, weight_bits=4, activation_bits=4, symmetric=True, per_channel=False, quantize_activations_during_train=False, quantize_weights_during_forward=False, use_wandb=True, wandb_project='sanchari_assignment3', wandb_run_name=None, log_interval=100, out_dir='./checkpoints')
+>>> Using device: cpu
+>>> CIFAR-10 dataloaders ready
+>>> Model created
+wandb: Currently logged in as: cs24m532 (cs24m532-keysight-technologies) to https://api.wandb.ai. Use `wandb login --relogin` to force relogin
+wandb: Tracking run with wandb version 0.23.0
+wandb: Run data is saved locally in C:\Users\sanchroy\Desktop\MTECH\deep learning\Sanchari_Assignment3\wandb\run-20251213_153538-9gmly8rf
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run chocolate-leaf-13
+wandb:  View project at https://wandb.ai/cs24m532-keysight-technologies/sanchari_assignment3
+wandb:  View run at https://wandb.ai/cs24m532-keysight-technologies/sanchari_assignment3/runs/9gmly8rf
+>>> WandB logging enabled
+>>> Starting training loop...
+C:\Users\sanchroy\miniconda3\envs\sanchari_deep\lib\site-packages\torch\utils\data\dataloader.py:668: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+Epoch [0] Step [100/391] Loss: 1.9726 Acc@1: 24.27
+Epoch [0] Step [200/391] Loss: 1.8188 Acc@1: 31.32
+Epoch [0] Step [300/391] Loss: 1.7202 Acc@1: 35.54
+Eval: Loss 1.3404 Acc@1 52.67 Acc@5 93.38
+Epoch [1] Step [100/391] Loss: 1.3076 Acc@1: 52.67
+Epoch [1] Step [200/391] Loss: 1.2639 Acc@1: 54.27
+Epoch [1] Step [300/391] Loss: 1.2137 Acc@1: 56.20
+Eval: Loss 1.0928 Acc@1 62.15 Acc@5 95.89
+Epoch [2] Step [100/391] Loss: 0.9695 Acc@1: 65.77
+Epoch [2] Step [200/391] Loss: 0.9373 Acc@1: 66.89
+Epoch [2] Step [300/391] Loss: 0.9161 Acc@1: 67.82
+Eval: Loss 0.8451 Acc@1 71.27 Acc@5 97.63
+Epoch [3] Step [100/391] Loss: 0.7607 Acc@1: 73.49
+Epoch [3] Step [200/391] Loss: 0.7521 Acc@1: 74.02
+Epoch [3] Step [300/391] Loss: 0.7363 Acc@1: 74.56
+Eval: Loss 0.7501 Acc@1 74.28 Acc@5 98.46
+Epoch [4] Step [100/391] Loss: 0.6331 Acc@1: 77.58
+Epoch [4] Step [200/391] Loss: 0.6312 Acc@1: 77.86
+Epoch [4] Step [300/391] Loss: 0.6191 Acc@1: 78.31
+Eval: Loss 0.6260 Acc@1 78.23 Acc@5 98.74
+Epoch [5] Step [100/391] Loss: 0.5335 Acc@1: 81.49
+Epoch [5] Step [200/391] Loss: 0.5403 Acc@1: 81.23
+Epoch [5] Step [300/391] Loss: 0.5352 Acc@1: 81.41
+Eval: Loss 0.5629 Acc@1 81.13 Acc@5 99.05
+Epoch [6] Step [100/391] Loss: 0.4722 Acc@1: 83.55
+Epoch [6] Step [200/391] Loss: 0.4713 Acc@1: 83.61
+Epoch [6] Step [300/391] Loss: 0.4729 Acc@1: 83.55
+Eval: Loss 0.4946 Acc@1 82.87 Acc@5 99.24
+Epoch [7] Step [100/391] Loss: 0.4280 Acc@1: 85.41
+Epoch [7] Step [200/391] Loss: 0.4287 Acc@1: 85.12
+Epoch [7] Step [300/391] Loss: 0.4265 Acc@1: 85.10
+Eval: Loss 0.4663 Acc@1 84.67 Acc@5 99.35
+Epoch [8] Step [100/391] Loss: 0.3898 Acc@1: 86.73
+Epoch [8] Step [200/391] Loss: 0.3868 Acc@1: 86.85
+Epoch [8] Step [300/391] Loss: 0.3858 Acc@1: 86.82
+Eval: Loss 0.4464 Acc@1 85.03 Acc@5 99.39
+Epoch [9] Step [100/391] Loss: 0.3711 Acc@1: 87.02
+Epoch [9] Step [200/391] Loss: 0.3623 Acc@1: 87.34
+Epoch [9] Step [300/391] Loss: 0.3590 Acc@1: 87.50
+Eval: Loss 0.4344 Acc@1 85.60 Acc@5 99.45
+wandb:
+wandb: Run history:
+wandb:    epoch ▁▂▃▃▄▅▆▆▇█
+wandb:       lr ██▇▇▆▄▃▂▂▁
+wandb: val/acc1 ▁▃▅▆▆▇▇███
+wandb: val/acc5 ▁▄▆▇▇█████
+wandb:
+wandb: Run summary:
+wandb:    epoch 9
+wandb:       lr 0.00049
+wandb: val/acc1 85.6
+wandb: val/acc5 99.45
+wandb:
+wandb:  View run chocolate-leaf-13 at: https://wandb.ai/cs24m532-keysight-technologies/sanchari_assignment3/runs/9gmly8rf
+wandb:  View project at: https://wandb.ai/cs24m532-keysight-technologies/sanchari_assignment3
+wandb: Synced 5 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: .\wandb\run-20251213_153538-9gmly8rf\logs
+
+
+11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111
+
+(sanchari_deep) C:\Users\sanchroy\Desktop\MTECH\deep learning\Sanchari_Assignment3>python train.py --epochs 20 --lr 0.04  --weight_bits 6 --activation_bits 6 --use_wandb --wandb_project sanchari_assignment3
+>>> main() started with config: TrainConfig(data_dir='./data', num_workers=4, width_mult=1.0, dropout=0.2, num_classes=10, batch_size=128, epochs=20, optimizer='sgd', lr=0.04, momentum=0.9, weight_decay=0.0005, lr_schedule='cosine', warmup_epochs=5, label_smoothing=0.0, seed=42, weight_bits=6, activation_bits=6, symmetric=True, per_channel=False, quantize_activations_during_train=False, quantize_weights_during_forward=False, use_wandb=True, wandb_project='sanchari_assignment3', wandb_run_name=None, log_interval=100, out_dir='./checkpoints')
+>>> Using device: cpu
+>>> CIFAR-10 dataloaders ready
+>>> Model created
+wandb: Currently logged in as: cs24m532 (cs24m532-keysight-technologies) to https://api.wandb.ai. Use `wandb login --relogin` to force relogin
+wandb: Tracking run with wandb version 0.23.0
+wandb: Run data is saved locally in C:\Users\sanchroy\Desktop\MTECH\deep learning\Sanchari_Assignment3\wandb\run-20251213_164144-dur3iuxj
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run solar-leaf-14
+wandb:  View project at https://wandb.ai/cs24m532-keysight-technologies/sanchari_assignment3
+wandb:  View run at https://wandb.ai/cs24m532-keysight-technologies/sanchari_assignment3/runs/dur3iuxj
+>>> WandB logging enabled
+>>> Starting training loop...
+C:\Users\sanchroy\miniconda3\envs\sanchari_deep\lib\site-packages\torch\utils\data\dataloader.py:668: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+Epoch [0] Step [100/391] Loss: 2.0480 Acc@1: 23.84
+Epoch [0] Step [200/391] Loss: 1.8711 Acc@1: 30.64
+Epoch [0] Step [300/391] Loss: 1.7644 Acc@1: 34.82
+Eval: Loss 1.3327 Acc@1 53.45 Acc@5 94.21
+Epoch [1] Step [100/391] Loss: 1.2946 Acc@1: 53.72
+Epoch [1] Step [200/391] Loss: 1.2432 Acc@1: 55.51
+Epoch [1] Step [300/391] Loss: 1.1997 Acc@1: 57.28
+Eval: Loss 1.0574 Acc@1 62.98 Acc@5 96.45
+Epoch [2] Step [100/391] Loss: 0.9623 Acc@1: 65.52
+Epoch [2] Step [200/391] Loss: 0.9383 Acc@1: 66.58
+Epoch [2] Step [300/391] Loss: 0.9150 Acc@1: 67.53
+Eval: Loss 0.8220 Acc@1 71.77 Acc@5 98.03
+Epoch [3] Step [100/391] Loss: 0.7539 Acc@1: 73.43
+Epoch [3] Step [200/391] Loss: 0.7452 Acc@1: 74.02
+Epoch [3] Step [300/391] Loss: 0.7321 Acc@1: 74.62
+Eval: Loss 0.7487 Acc@1 74.08 Acc@5 98.36
+Epoch [4] Step [100/391] Loss: 0.6399 Acc@1: 77.83
+Epoch [4] Step [200/391] Loss: 0.6327 Acc@1: 78.02
+Epoch [4] Step [300/391] Loss: 0.6225 Acc@1: 78.34
+Eval: Loss 0.6261 Acc@1 78.08 Acc@5 98.97
+Epoch [5] Step [100/391] Loss: 0.5457 Acc@1: 80.98
+Epoch [5] Step [200/391] Loss: 0.5580 Acc@1: 80.67
+Epoch [5] Step [300/391] Loss: 0.5528 Acc@1: 80.87
+Eval: Loss 0.6347 Acc@1 79.44 Acc@5 98.72
+Epoch [6] Step [100/391] Loss: 0.4965 Acc@1: 82.59
+Epoch [6] Step [200/391] Loss: 0.5005 Acc@1: 82.58
+Epoch [6] Step [300/391] Loss: 0.5013 Acc@1: 82.62
+Eval: Loss 0.4910 Acc@1 83.13 Acc@5 99.13
+Epoch [7] Step [100/391] Loss: 0.4451 Acc@1: 84.59
+Epoch [7] Step [200/391] Loss: 0.4510 Acc@1: 84.26
+Epoch [7] Step [300/391] Loss: 0.4521 Acc@1: 84.32
+Eval: Loss 0.4854 Acc@1 83.65 Acc@5 99.13
+Epoch [8] Step [100/391] Loss: 0.4050 Acc@1: 86.05
+Epoch [8] Step [200/391] Loss: 0.4131 Acc@1: 85.75
+Epoch [8] Step [300/391] Loss: 0.4161 Acc@1: 85.69
+Eval: Loss 0.4920 Acc@1 83.26 Acc@5 99.29
+Epoch [9] Step [100/391] Loss: 0.3817 Acc@1: 86.45
+Epoch [9] Step [200/391] Loss: 0.3779 Acc@1: 86.84
+Epoch [9] Step [300/391] Loss: 0.3803 Acc@1: 86.82
+Eval: Loss 0.4460 Acc@1 84.69 Acc@5 99.38
+Epoch [10] Step [100/391] Loss: 0.3622 Acc@1: 87.48
+Epoch [10] Step [200/391] Loss: 0.3503 Acc@1: 87.86
+Epoch [10] Step [300/391] Loss: 0.3463 Acc@1: 88.06
+Eval: Loss 0.4393 Acc@1 85.06 Acc@5 99.35
+Epoch [11] Step [100/391] Loss: 0.3042 Acc@1: 89.46
+Epoch [11] Step [200/391] Loss: 0.3034 Acc@1: 89.55
+Epoch [11] Step [300/391] Loss: 0.3081 Acc@1: 89.50
+Eval: Loss 0.3966 Acc@1 86.45 Acc@5 99.51
+Epoch [12] Step [100/391] Loss: 0.2726 Acc@1: 90.63
+Epoch [12] Step [200/391] Loss: 0.2770 Acc@1: 90.46
+Epoch [12] Step [300/391] Loss: 0.2787 Acc@1: 90.34
+Eval: Loss 0.3847 Acc@1 87.15 Acc@5 99.56
+Epoch [13] Step [100/391] Loss: 0.2518 Acc@1: 91.46
+Epoch [13] Step [200/391] Loss: 0.2511 Acc@1: 91.39
+Epoch [13] Step [300/391] Loss: 0.2488 Acc@1: 91.46
+Eval: Loss 0.3605 Acc@1 88.20 Acc@5 99.61
+
