@@ -1,48 +1,45 @@
 ## README — Reproducibility and Execution Details
 
-### Environment Setup
-
-- **OS:** Ubuntu 20.04  
-- **Python:** 3.9.18 (Anaconda)  
-- **CUDA:** 11.8  
-- **GPU:** NVIDIA RTX series (CPU fallback supported)
+This section documents the exact environment, commands, dependencies, and seed configuration used to reproduce all results reported in Assignment-3.
 
 ---
 
-### Conda Environment Setup
+## Environment Setup
+
+- **Operating System**: Ubuntu 20.04  
+- **Python**: 3.9.18  
+- **CUDA**: 11.8  
+- **GPU**: NVIDIA RTX series (CPU fallback supported)
+
+---
+
+## Conda Environment Creation
+
+All experiments were run inside a dedicated Conda environment.
 
 ```bash
-conda create -n cs6886w python=3.9 -y
-conda activate cs6886w
+conda create -n cs6886_a3 python=3.9 -y
+conda activate cs6886_a3
+```
 
-Python Dependencies
+## Python Dependencies
+Exact dependency versions used:
+
+```bash
 pip install torch==2.1.0 torchvision==0.16.0
 pip install numpy==1.24.4
 pip install wandb==0.16.3
+```
 
-Seed Configuration (Reproducibility)
+## Seed Configuration (Reproducibility)
 
-All experiments are run with a fixed seed:
+All experiments use a fixed random seed:
 
 seed = 42
 
+##Baseline Training (No Compression)
 
-The seed is applied to:
-
-Python random
-
-NumPy
-
-PyTorch (CPU + CUDA)
-
-Implemented via:
-
-set_seed(42)
-
-
-This ensures reproducible training, evaluation, and compression measurements.
-
-Baseline Training (No Compression)
+```bash
 python train.py \
   --epochs 200 \
   --batch_size 128 \
@@ -50,19 +47,18 @@ python train.py \
   --weight_bits 32 \
   --activation_bits 32 \
   --use_wandb
-
+```
 
 This run reports:
 
-Baseline top-1 accuracy
+Baseline Top-1 accuracy
+Training and validation loss/accuracy curves
 
-Loss and accuracy curves
 
-Reference FP32 model size
+## Compression-Aware Training Runs (Minimum 8 Runs)
+The following configurations were used to generate the WandB Parallel Coordinates plot.
 
-Compression-Aware Training Runs (Minimum 8 Runs)
-
-The following configurations were used to generate the WandB Parallel Coordinates plot:
+```bash
 
 python train.py --weight_bits 8 --activation_bits 8 --use_wandb
 python train.py --weight_bits 8 --activation_bits 6 --use_wandb
@@ -73,57 +69,37 @@ python train.py --weight_bits 8 --activation_bits 4 --use_wandb
 python train.py --weight_bits 6 --activation_bits 4 --use_wandb
 python train.py --weight_bits 4 --activation_bits 6 --use_wandb
 
+```
+## Compression Measurement
+Compression statistics are measured using a trained checkpoint:
 
-✔ Minimum 8 compression simulations satisfied
-✔ Weight–activation mixed precision explored
+```bash
 
-Compression Measurement
 python measure_compression.py \
   --checkpoint checkpoints/checkpoint_epoch_199.pth \
   --weight_bits 6 \
   --activation_bits 6
 
-
+```
 This script reports:
 
 Weight compression ratio
-
 Activation compression ratio
-
-Model-level compression ratio
-
-Final compressed model size (MB)
-
+Model compression ratio
 Storage overheads (scales, zero-points)
+Final approximated compressed model size (MB)
 
-WandB Parallel Coordinates Plot
+## WandB Parallel Coordinates Plot
 
 Steps to generate the plot:
 
 Open the WandB project: cs6886_assignment3
-
 Select all compression runs
-
 Click Charts → Parallel Coordinates
 
-Configure axes as:
+Use the following axes:
 
 weight_bits
-
 activation_bits
-
 val/acc1
-
 model_compression_ratio
-
-This visualization is used to analyze accuracy vs. compression trade-offs.
-
-Summary
-
-Evaluation is embedded directly in train.py
-
-eval.py is intentionally unused
-
-Compression analysis is isolated in measure_compression.py
-
-All experiments are reproducible with fixed seeds
