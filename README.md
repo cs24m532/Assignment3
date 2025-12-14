@@ -1,12 +1,19 @@
-Environment Setup
+## README — Reproducibility and Execution Details
 
-OS: Ubuntu 20.04
+### Environment Setup
 
-Python: 3.9.18
+- **OS:** Ubuntu 20.04  
+- **Python:** 3.9.18 (Anaconda)  
+- **CUDA:** 11.8  
+- **GPU:** NVIDIA RTX series (CPU fallback supported)
 
-CUDA: 11.8
+---
 
-GPU: NVIDIA RTX series (or CPU fallback supported)
+### Conda Environment Setup
+
+```bash
+conda create -n cs6886w python=3.9 -y
+conda activate cs6886w
 
 Python Dependencies
 pip install torch==2.1.0 torchvision==0.16.0
@@ -28,6 +35,8 @@ NumPy
 
 PyTorch (CPU + CUDA)
 
+Implemented via:
+
 set_seed(42)
 
 
@@ -42,9 +51,18 @@ python train.py \
   --activation_bits 32 \
   --use_wandb
 
-Compression-Aware Training Runs (≥ 8 runs)
 
-Example configurations used for WandB Parallel Coordinates:
+This run reports:
+
+Baseline top-1 accuracy
+
+Loss and accuracy curves
+
+Reference FP32 model size
+
+Compression-Aware Training Runs (Minimum 8 Runs)
+
+The following configurations were used to generate the WandB Parallel Coordinates plot:
 
 python train.py --weight_bits 8 --activation_bits 8 --use_wandb
 python train.py --weight_bits 8 --activation_bits 6 --use_wandb
@@ -56,7 +74,8 @@ python train.py --weight_bits 6 --activation_bits 4 --use_wandb
 python train.py --weight_bits 4 --activation_bits 6 --use_wandb
 
 
-✔ Minimum 8 runs satisfied
+✔ Minimum 8 compression simulations satisfied
+✔ Weight–activation mixed precision explored
 
 Compression Measurement
 python measure_compression.py \
@@ -65,13 +84,13 @@ python measure_compression.py \
   --activation_bits 6
 
 
-This reports:
+This script reports:
 
 Weight compression ratio
 
 Activation compression ratio
 
-Model compression ratio
+Model-level compression ratio
 
 Final compressed model size (MB)
 
@@ -79,15 +98,15 @@ Storage overheads (scales, zero-points)
 
 WandB Parallel Coordinates Plot
 
-Steps:
+Steps to generate the plot:
 
-Open WandB project cs6886_assignment3
+Open the WandB project: cs6886_assignment3
 
 Select all compression runs
 
 Click Charts → Parallel Coordinates
 
-Axes used:
+Configure axes as:
 
 weight_bits
 
@@ -97,12 +116,14 @@ val/acc1
 
 model_compression_ratio
 
+This visualization is used to analyze accuracy vs. compression trade-offs.
+
 Summary
 
-Evaluation is embedded in train.py
+Evaluation is embedded directly in train.py
 
 eval.py is intentionally unused
 
 Compression analysis is isolated in measure_compression.py
 
-All results are reproducible with fixed seeds
+All experiments are reproducible with fixed seeds
